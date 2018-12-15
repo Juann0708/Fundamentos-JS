@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Notas</title>
+</head>
+<body>
+<p> </p>
+</body>
+</html>
+
+Si escribimos el valor de una variable en la consola, a continuación nos imprime el valor de esta
+
+El punto y coma es opcional, a excepción de algunos casos muy puntuales
+
+Para concatenar hay que agregar un '+' despues del texto: console.log('Hola ' + nombre)
+
+Se puede declarar una variable y asignarle un valor en la misma línea: var nombre = 'Juan'
+
+"Las variables no conocemos el tipo que va a ser" Esto significa que una variable puede cambiar de tipo, ya que JS es un lenguaje que no esta estrictamente tipado, puede cambiar de entero a string. Por ejemplo:
+
+var edad = 21
+
+edad = '21 años'
+
+console.log('tengo' + edad)
+
+Se le puede asignar valores a la variable desde la consola
+
+nombre.toUpperCase() convierte todo lo que este adentro de la variable nombre a Mayusculas
+apellido.toLowerCase() convierte todo lo que esté adentro de la variable apellido a Minusculas
+nombre.charAt() identifica en que posicion se encuentra una letra dentro de un string, se comienza desde la posición 0. Por ejemplo:
+
+var primeraLetra = nombre.charAt(1)
+
+El resultado que reflejará es 'u' ya que tambien respeta mayusculas y minusculas
+
+nombre.length Sirve para contar cuantos caracteres tiene la variable nombre
+
+Interpolación de texto
+
+Se usa una comilla invertida `` esta comilla nos permite interpolar variables ${} (template string) permite escribir codigo Javascript dentro de los corchetes. Ejemplo
+
+nombreCompleto = `${nombre.toUpperCase} ${appelido}`
+
+Acceder a sub strings dentro de un string
+
+nombre.substr(1,1) - Le tenemos que decir desde donde queremos que empiece, y cuantos caracteres queremos que tome, en este caso solo tomaria el caracter que se encuentre en la posición 1, si es nombre.substr(1,2) tomaría el valor de la posición numero 1 y 2	
+
+si se modifica una variable en la consola, esta volverá a su valor original al refrescar la página
+
+Para sumar a una variable podemos usar 
+
+var edad = 21
+
+edad = edad + 1 o edad += 1
+
+para decrementar una variable se puede hacer similar
+
+var peso = 75
+
+peso = peso - 2 o pes0 -= 2
+
+*Sumar variables
+
+sandwich = 1
+
+peso = peso + sandwich o peso += sandwich
+
+*Restar Variables 
+
+jugarFutbol = 2
+
+peso = peso - jugarFutbol o peso -=jugarFutbol
+
+Operaciones con decimales
+
+Al realizar una operacion con decimales, por ejemplo 200.3 x 3, el resultado reflejará 609.90000001, ya que la manera en la que Javascript almacena los decimales no es tan precisa, para estos casos, lo que se puede hacer es convertir el numero en entero y volver a dividirlo, por ejemplo
+
+203.3 * 100 * 3 / 100
+
+así el resultado será preciso
+
+Podemos acceder a un modulo de JS llamado Math.round, lo que podemos hacer con este modulo es redondear el resultado de una operación
+
+total.fixed toma la cantidad de decimales que le declaremos despues de la coma por ejemplo, si declaramos total.fixed(2), el resultado seria 609.90
+
+Para volver a transofrmar a decimal despues de esto usamos parseFloat
+
+total2 = parseFloat(totalStr)
+
+Divisiones
+
+pizza = 8 
+personas = 2
+
+porcionesPorPersona = pizza / personas
+
+Funciones
+
+function es una palabra reservada, la sintaxis para declararla es 
+
+function imprimirEdad(){
+	
+}
+
+Dentro de los corchetes se define que es lo que va a hacer la funcion, en este caso, va a imprimir el nombre y edad de una persona
+
+function imprimirEdad(){
+	console.log(`${nombre} tiene ${edad} años`)
+}
+
+Para llamarla solo hay que escribir su nombre
+
+Las funciones nos sirven para reutilizar código
+
+Para que una función pueda recibir parametros hay que poner dentro de los parentesis los nombres de estos, por ejemplo:
+
+function imprimirEdad(n, e){
+	console.log(`${n} tiene ${e} años`)
+}
+
+Y al escribir en la consola la sintaxis tendrá que ser así
+
+imprimirEdad('Pablo', 23)
+
+Alcance de las funciones
+
+Si una variable no está definida dentro del cuerpo de una función hablamos de una variable global. Por el contrario, una variable definida dentro de una función es una variable local.
+
+Side Effect: al invocar una función, va a tener un efecto colateral, es decir, va a afectar variables que no estan dentro de ella(La función)
+
+Para no modificar la variable global podemos reemplazarla por una variable local en la función, por ejemplo:
+
+function imprimirMayusculas(n){
+	n = n.toUpperCase()
+	console.log(n)
+}
+
+imprimirMayusculas(nombre)
+
+aparte Javascript nos permite usar una variable local con el mismo que una variable global sin afectarle (a la global) siempre y cuando no nos estemos refiriendo a window.nombre
+
+Objetos
+
+Las llaves delimitan el objeto, asi como sus caracteristicas(atributos), para separar estas caracteristicas usamos comas
+
+var Juan = {
+	nombre: Juan,
+	apellido: 21,
+	edad: 21
+
+}
+
+Un objeto no es mas que clave y valor
+
+clave: valor
+
+para acceder a cada una de las caracterisitcas de  el objeto hay que hacer esto
+
+Objeto.clave 
+
+por ejemplo:
+
+function imprimirMayusculas(persona){
+	var nombre = persona.nombre.toUpperCase()
+	console.log(n)
+}
+
+imprimirMayusculas(juan.nombre)
+
+se pueden poner llaves para llamar a los atributos del objeto que nos interesan. Ejemplo:
+
+}
+function imprimirMayusculas({nombre}){
+	console.log(nombre.toUpperCase())
+}
+
+imprimirMayusculas(juan)
+
+*Los objetos se definen delimitados mediante llaves {}
+
+Un atributo se compone de una clave (key) y un valor (value), que se separan entre sí por dos puntos “”:"". Los valores pueden ser de tipo string, número, booleano, etc. Cada atributo está separado del siguiente por una coma. Un objeto puede tener todos los atributos que sean necesarios.
+
+Desestructurar objetos
+
+Otra forma de llamar a los atributos de los objetos es:
+
+function imprimirMayusculas(persona){
+	var { nombre } = persona
+	console.log(nombre.toUpperCase)
+}
+
+con "..." desglosamos un objeto dentro de uno nuevo
+
+Cuando los objetos se pasan como una referencia, estos se modifican fuera de la función. Para solucionar esto se puede crear un objeto diferente. Esto lo podemos hacer colocando tres puntos antes del nombre. 
+
+//Comparaciones
+
+=== sirve para comparar  si el valor es el mismo, y si son del mismo tipo
+== Javascript lleva los 2 valores a un mismo tipo y los compara
+
+Si comparamos 2 objetos siempre nos dirá que son distintos, ya que al hacer la comparación se apunta al lugar en la memoria donde se encuentran los objetos, a menos de que el onjeto le apunte al otro
+
+//Condicionales
+
+Los condicionales nos permiten decidir si un código se ejecuta o no. 
+Mediante un condicional (if) decidiremos si se ejecuta una parte de nuestro código cuando se cumpla o no cierta condición.
+
+Sintaxis
+
+if(condición === true){
+	console.log('Si esto es verdadero, este texto se mostrará')
+}
+
+Se usa el triple igual, ya que compara que sean del mismo tipo y que tengan el mismo valor
+
+El else se utiliza por si no se cumple la condición
+
+if(condición === true){
+	console.log('Si esto es verdadero, este texto se mostrará')
+} else{
+	console.log('Si es falso, se imprime esto')
+	
+}
+
+
+var = variable
+const = constante - En mayusculas y con guiones bajos. Ejemplo: 
+const MAYORIA_DE_EDAD >= 18
+
+
+Funciones anonimas
+
+var esMayorDeEdad = function (persona){
+	if (esMayorDeEdad(juan)) {
+			console.log(`${juan.nombre} es mayor de edad`)
+		}else{
+			console.log(`${juan.nombre} es menor de edad`)
+		}
+}
+
+Arrow function
+
+podemos usar esta nomenclatura mas corta para declarar una variable=> ademas de que implicitamente va a renornar el valor de la sentencia sin forzosamente tener que declarar un return
+
+const esMayorDeEdad = persona => persona.edad => 18
+
+Estructura For
+
+En esta clase estudiaremos una de las estructuras básicas de control. El bucle for, se utiliza para repetir una o más instrucciones un determinado número de veces
+
+console.log(`Al principio del año ${juan.nombre} pesa ${juan.peso} kg`)  //Se muestra en consola cuanto pesa Juan al inicio del año
+	
+	const aumentarDePeso = juan => juan.peso += .200
+	const bajarDePeso = juan => juan.peso -= .200
+
+	for(var i = 1; i < 365; i++) {    //var i es un contador, cuando llegue a 365 se va a dejar de ejecutar, para esto se le va a sumar uno cada iteración hasta llegar a 365
+		var random = Math.random() //Esta funcion genera un número aleatorio
+
+		if (random < 0.25 ) {   //Si el numero aleatorio es menor de 0.25, estonces el peso de Juan aumentará
+			aumentarDePeso(juan)
+		}else if(random < 0.50){ //Si el numero aleatorio es menor que 0.50, pero mayor a 0.25, entonces el peso de Juan decrementará
+			bajarDePeso(juan)
+		}
+}
+
+
+console.log(`Al final del año ${juan.nombre} pesa ${juan.peso} kg`) //Se muestra en consola el peso de Juan al finalizar el año
+
+Estructura While
+
+While se ejecuta únicamente mientras la condición que se está evaluando es verdadera.
+
+const aumentaDePeso = juan => juan.peso += .300   //Aumenta de peso
+	const bajaDePeso = juan => juan.peso -= .300  //Baja de peso
+	const META = juan.peso - 3        //La meta es el peso actual -3
+	var dias = 0         //iniciamos un contador para sabr cuantos dias tuvieron que pasar para que se alcanzara la meta
+
+
+	const comeMucho = () => Math.random() < 0.3		// el 30% de los dias come mucho		
+	const haceDeporte = () => Math.random() <0.4    // el 40% de los dias hace deporte
+
+	while(juan.peso > META ){         //mientras  no se cumpla la condición, el código se estará ejecuntando
+		if (comeMucho()) {
+			aumentaDePeso(juan)
+		}
+		if (haceDeporte()) {
+			bajaDePeso(juan)
+		}
+		dias += 1                     //por cada que se ejecute la sentencia, aumentan el numero de días que pasaron
+	}
+
+console.log(`Tuvieron que pasar ${dias} dias para que ${juan.nombre}adelgazó 3 kg`) //Se muestra en consola el peso de Juan al finalizar el año
+
+do while
+
+A diferencia de la instrucción while, un bucle do…while se ejecuta una vez antes de que se evalúe la expresión condicional.
+
+var contador = 0
+
+const llueve = () => Math.random() < 0.25  //La probabilidad de que llueva es de 25%
+
+do{                    //Haz esto mientras que no se cumpla la condicion
+	contador++
+
+}while(!llueve())      //Mientras no llueva se suma 1 a contador
+
+if (contador === 1){
+console.log(`Tuvo que pasar ${contador} dia para que lloviera`)	
+} else {
+	console.log(`Tuvieron que pasar ${contador} dias para que lloviera`)	
+}
+
+Switch
+
+var signo = prompt('¿Cual es tu signo?') //le pide al usuario su signo zodiacal mediante un cuador de texto
+const horoscopo = 'Inserte horoscopo aquí'
+switch(signo){
+	case 'acuario':    // en caso de que el signo zodiacal de la persona sea acuario, se ejecuta la siguiente sentencia
+		console.log('acuario' + horoscopo)
+	break             //Termina la instrucción
+	case 'piscis':
+		console.log('piscis' + horoscopo)
+	break
+	case 'aries':
+		console.log('aries' + horoscopo)
+	break
+	case 'tauro':
+		console.log('tauro' + horoscopo)
+	break
+	case 'geminis':
+	case 'géminis':   //Se pueden poner las 2 en caso de que el usuario lo escriba con acento
+		console.log('geminis' + horoscopo)
+	break
+	case 'cancer':
+	console.log('cancer' + horoscopo)
+	break
+	case 'leo':
+	console.log('leo' + horoscopo)
+	default:           //En caso de que no cumpla ninguna de las condiciones, se ejecuta esta línea
+	console.log('prueba intentando de nuevo')
+	break
+}
+
+ Switch se utiliza para realizar diferentes acciones basadas en múltiples condiciones.
+
+ Arrays
+
+ Para indicar que es un arreglo, se usan []. Dentro se incluyen todas las variables que queramos que contenga el arreglo
+
+ var sacha = {
+    nombre: 'Sacha',
+    apellido: 'Lifszyc',
+    altura: 1.72
+}
+
+var alan = {
+    nombre: 'Alan',
+    apellido: 'Perez',
+    altura: 1.86
+}
+
+var martin = {
+    nombre: 'Martin',
+    apellido: 'Gomez',
+    altura: 1.85
+}
+
+var dario = {
+    nombre: 'Dario',
+    apellido: 'Juarez',
+    altura: 1.71
+}
+
+var vicky = {
+    nombre: 'Vicky',
+    apellido: 'Zapata',
+    altura: 1.56
+}
+
+var paula = {
+    nombre: 'Paula',
+    apellido: 'Barros',
+    altura: 1.76
+}
+
+var personas = [sacha, alan, martin, dario, vicky, paula]
+
+Para acceder a algun elemento del arreglo usamos personas[] y entre los corchetes escribimos la posicion a la que queremos acceder, empieza desde 0
+
+Y para acceder a algún atributo es especifico podemos usar:
+
+personas[0].altura o personas[0]['altura']
+
+var personas = [sacha, alan, martin, dario, vicky, paula] //metemos todas las funciones a un arreglo
+
+personas.forEach(persona => {       //arrow function para cada persona con la funcion foreach
+    console.log(`${persona.nombre} mide ${persona.altura}`)
+})
+
+Filtrar arreglos
+
+Con personas.filter() podemos filtrar los elementos de un arreglo de acuerdo a lo que nosotros queramos. Ejemplo:
+
+const esAlta = persona => persona.altura > 1.8
+
+var personas = [sacha, alan, martin, dario, vicky, paula] //metemos todas las funciones a un arreglo
+
+var personasAltas = personas.filter(esAlta)  //Filtra a las personas que son altas
+
+
+
+console.log(personasAltas)
+
+Transformar arreglos
+
+El método map() itera sobre los elementos de un array en el orden de inserción y devuelve array nuevo con los elementos modificados.
+
+const pasarAlturaACms = personas => ({                    
+        ...personas,               //Tomamos los atributos del arreglo personas  
+        altura: personas.altura * 100   //multiplica por 100 la estatura de la persona
+})
+
+var personasCms = personas.map(pasarAlturaACms)  //crea un nuevo arreglo con la estatura en Centímetros
+
+console.log(personasCms)
+
+Reducir arreglos
+
+reduce() nos permite reducir, mediante una función que se aplica a cada uno de los elemento del array, todos los elementos de dicho array, a un valor único.
+
+const reducer = (acum, {cantidadDeLibros}) => acum + cantidadDeLibros 
+
+var totalDeLibros = personas.reduce(reducer, 0) //(funcion, valor inicial del acumulador) reduce() nos permite reducir,
+ //mediante una función que se aplica a cada uno de los elemento del array, todos los elementos de dicho array, a un valor único.
+
+
+console.log(`En total todos tienen ${totalDeLibros} libros`)
+
+
+Prototipos
+
+New seguido del prototipo hace que se cree un nuevo objeto
+This hace referencia al objeto que se acaba de construir
+
+Nota: Cuando tenemos un error en JS, éste no se sigue ejecutando, se corta ahí la ejecución del código.
+
+Las arrow functions cambian .this a un entorno global
+
+herencia prototipal
+
+Extends
+
+La palabra clave extends se usa en declaraciones de clase o expresiones de clase para crear una clase que es hija de otra clase.
+
+El método constructor es un método especial para crear e inicializar un objeto creado a partir de una clase.
+
+class Persona{
+	constructor(nombre, apellido, edad, altura){
+	this.nombre = nombre
+	this.apellido = apellido
+	this.edad = edad //20     //Se le puede asignar a todos los objetos un mismo parametro
+	this.altura = altura
+	}
+	saludar(){
+		if (this.altura >=1.80){
+		console.log(`Hola, me llamo ${this.nombre} y mido ${this.altura}, por lo tanto soy alto`)
+	}else{
+		console.log(`Hola, me llamo ${this.nombre} y mido ${this.altura} por lo tanto no soy alto`)
+		}
+	}
+
+}
+class Desarrollador extends Persona{     //la palabra clave extends se usa en declaraciones de clase o expresiones de clase para crear una clase que es hija de otra clase
+	constructor (nombre, apellido, altura){ //Constructor es un método especial para crear e inicializar un objeto creado a partir de una clase
+		super(nombre, apellido, altura)  // No se puede utilizar this hasta que hayamos llamado al constructor de la clase padre, para esto llamamos a "super"
+	}
+	
+	saludar(){
+		console.log(`Hola, me llamo ${this.nombre} ${this.apellido} y soy desarrollador`)
+	}
+}
+
+Funciones como parametros
+
+En JavaScript, los parámetros de funciones son por defecto undefined. De todos modos, en algunas situaciones puede ser útil colocar un valor por defecto diferente que lo evalúe como verdadero
+
+Notas:
+Siempre va a ser false: 
+	*False
+	*null
+	*0
+	*"" (cadena vacía)
+	*undefined
+	*NaN
+
+EventLoop.
+
+JavaScript delega en el navegador ciertas tareas y les asocia funciones que deberán ser ejecutadas al ser completadas. Estas funciones se llaman callbacks, y una vez que el navegador ha regresado con la respuesta, el callback asociado pasa a la cola de tareas para ser ejecutado una vez que JavaScript haya terminado todas las instrucciones que están en la pila de ejecución.
+
+Si se acumulan funciones en la cola de tareas y JavaScript se encuentra ejecutando procesos muy pesados, el EventLoop quedará bloqueado y esas funciones pudieran tardar demasiado en ejecutarse.
+
+<script type="text/javascript">
+	/*console.log('a')
+	setTimeout(function(){ //Lo pone en la cola de tareas, ya que no lo puede ejecutar hasta que haya acabado la tarea principal
+		console.log('b') 
+	},0) //Expresado en milisegundos
+	console.log('c')*/
+
+	setTimeout(() => console.log('d'),2000)
+	for (var i = 0; i < 1000000000000000000000000000000000000000; i++){
+
+	}
+</script>
+
+setTimeOut	/*console.log('a')
+	setTimeout(function(){ //Lo pone en la cola de tareas, ya que no lo puede ejecutar hasta que haya acabado la tarea principal
+		console.log('b') 
+	},0) //Expresado en milisegundos
+	console.log('c')*/
+
+
+Callbacks
+
+Un callback es una función que se pasa a otra función como un argumento. Esta función se invoca, después, dentro de la función externa para completar alguna acción.
+
+
+const API_URL = 'https://swapi.co/api/'    //URL de la API
+const PEOPLE_URL = 'people/:id'            //Identificador del personaje
+//const luke = `${API_URL}${PEOPLE_URL.replace(':id', 1)}`
+const opts = { crossDomain: true}
+
+const onPeopleResponse = function(persona){              //Cuando llegue la respuesta del servidor, se desplegará el siguiente mensaje
+	console.log(`Hola, yo soy ${persona.name}`)
+}
+/*$.get(luke,opts, function(luke){
+	console.log(`Hola, yo soy ${luke.name}`)
+
+})
+*/
+
+function obtenerPersonaje(id){
+	const url = `${API_URL}${PEOPLE_URL.replace(':id',id)}`
+	$.get(url,opts, onPeopleResponse)
+}
+
+obtenerPersonaje(1)
+obtenerPersonaje(2)
+obtenerPersonaje(3)  //No se sabe en que orden llegarán las respuestas, sepende del servidor y cuanto tarda en responder las requests
+
+se usa .fail para que en el caso de que se llegue a perder la conexion, el programa muestre un mensaje.
+
+
+	$.get(url, opts, callback).fail(function (){   //El siguiente mensaje se desplegará en caso de que se pierda la conexión
+		console.log(`Ocurrió un error, no se pudo obtener el personaje ${id}`)
+
+
+Promesas
+
+Polyfill: Detecta si el navegador en el que estamos corriendo el código no tiene el soporte para las promesas va a crear la clase de las promesas para nosotros
+
+Promesas: La promesa de que ahí habrá un valor cuando una acción asincrona suceda y se resuelva
+
+Primer estado: pending
+Si se resuelve exitosamente
+Pasa al estado: Fulfilled
+Si no se resuelve correctamente
+Pasa al estado: Rejected
+
+Promesas encadenadas
+
+A diferencia de los callbacks en el CallbackHell, que terminan estando anidados unos dentro de otros, cuando se usan Promesas la ejecución de las llamadas no se hacen de manera anidada sino de manera encadenada
+
+El método Promise.all devuelve una promesa que termina correctamente cuando todas las promesas en el argumento iterable han sido concluídas con éxito, o bien rechaza la petición con el motivo pasado por la primera promesa que es rechazada.
+
+
+Async - await
+
+async function obtenerPersonajes(){    //Se marca la función como asíncrona
+var ids = [1, 2, 3, 4, 5, 6, 7]  //Array de id's de personajes
+	var promesas =  ids.map(id => obtenerPersonaje(id)) //Array de promesas
+	try{
+		var personajes = await Promise.all(promesas) //Detiene la ejecución del programa hasta que todas las promesas son resueltas
+		console.log(personajes)
+	}catch(id){
+		onError(id)
+	}
+	}
+obtenerPersonajes()
+
+Await detiene la ejecución del programa hasta que todas las promesas sean resueltas.
+

@@ -1,0 +1,118 @@
+Si escribimos el valor de una variable en la consola, a continuación nos imprime el valor de esta
+
+El punto y coma es opcional, a excepción de algunos casos muy puntuales
+
+Para concatenar hay que agregar un '+' despues del texto: console.log('Hola ' + nombre)
+
+Se puede declarar una variable y asignarle un valor en la misma línea: var nombre = 'Juan'
+
+"Las variables no conocemos el tipo que va a ser" Esto significa que una variable puede cambiar de tipo, ya que JS es un lenguaje que no esta estrictamente tipado, puede cambiar de entero a string. Por ejemplo:
+
+var edad = 21
+
+edad = '21 años'
+
+console.log('tengo' + edad)
+
+Se le puede asignar valores a la variable desde la consola
+
+nombre.toUpperCase() convierte todo lo que este adentro de la variable nombre a Mayusculas
+apellido.toLowerCase() convierte todo lo que esté adentro de la variable apellido a Minusculas
+nombre.charAt() identifica en que posicion se encuentra una letra dentro de un string, se comienza desde la posición 0. Por ejemplo:
+
+var primeraLetra = nombre.charAt(1)
+
+El resultado que reflejará es 'u' ya que tambien respeta mayusculas y minusculas
+
+nombre.length Sirve para contar cuantos caracteres tiene la variable nombre
+
+Interpolación de texto
+
+Se usa una comilla invertida `` esta comilla nos permite interpolar variables ${} permite escribir codigo Javascript dentro de los corchetes. Ejemplo
+
+nombreCompleto = `${nombre.toUpperCase} ${appelido}`
+
+Acceder a sub strings dentro de un string
+
+nombre.substr(1,1) - Le tenemos que decir desde donde queremos que empiece, y cuantos caracteres queremos que tome, en este caso solo tomaria el caracter que se encuentre en la posición 1, si es nombre.substr(1,2) tomaría el valor de la posición numero 1 y 2	
+
+si se modifica una variable en la consola, esta volverá a su valor original al refrescar la página
+
+Para sumar a una variable podemos usar 
+
+var edad = 21
+
+edad = edad + 1 o edad += 1
+
+para decrementar una variable se puede hacer similar
+
+var peso = 75
+
+peso = peso - 2 o pes0 -= 2
+
+*Sumar variables
+
+sandwich = 1
+
+peso = peso + sandwich o peso += sandwich
+
+*Restar Variables 
+
+jugarFutbol = 2
+
+peso = peso - jugarFutbol o peso -=jugarFutbol
+
+Operaciones con decimales
+
+Al realizar una operacion con decimales, por ejemplo 200.3 x 3, el resultado reflejará 609.90000001, ya que la manera en la que Javascript almacena los decimales no es tan precisa, para estos casos, lo que se puede hacer es convertir el numero en entero y volver a dividirlo, por ejemplo
+
+203.3 * 100 * 3 / 100
+
+así el resultado será preciso
+
+Podemos acceder a un modulo de JS llamado Math.round, lo que podemos hacer con este modulo es redondear el resultado de una operación
+
+total.fixed toma la cantidad de decimales que le declaremos despues de la coma por ejemplo, si declaramos total.fixed(2), el resultado seria 609.90
+
+Para volver a transofrmar a decimal despues de esto usamos parseFloat
+
+total2 = parseFloat(totalStr)
+
+Divisiones
+
+pizza = 8 
+personas = 2
+
+porcionesPorPersona = pizza / personas
+
+Funciones
+
+function es una palabra reservada, la sintaxis para declararla es 
+
+function imprimirEdad(){
+	
+}
+
+Dentro de los corchetes se define que es lo que va a hacer la funcion, en este caso, va a imprimir el nombre y edad de una persona
+
+function imprimirEdad(){
+	console.log(`${nombre} tiene ${edad} años`)
+}
+
+Para llamarla solo hay que escribir su nombre
+
+Las funciones nos sirven para reutilizar código
+
+Para que una función pueda recibir parametros hay que poner dentro de los parentesis los nombres de estos, por ejemplo:
+
+function imprimirEdad(n, e){
+	console.log(`${n} tiene ${e} años`)
+}
+
+Y al escribir en la consola la sintaxis tendrá que ser así
+
+imprimirEdad('Pablo', 23)
+
+Alcance de las funciones
+
+Si una variable no está definida dentro del cuerpo de una función hablamos de una variable global. Por el contrario, una variable definida dentro de una función es una variable local.
