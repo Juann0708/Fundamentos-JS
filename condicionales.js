@@ -1,12 +1,13 @@
-var juan = {
+var juan = {   //Objeto Juan
 	nombre: 'Juan',
 	apellido: 'Cedillo',
-	edad: 17,
+	edad: 18,
 	licenciado: true,
 	streamer: false,
 	chef: false,
 	jugadorVideojuegos: true
 }
+
 
 function imprimirProfesiones(juan){
 	console.log(`${juan.nombre} es:`)
@@ -35,14 +36,11 @@ function imprimirProfesiones(juan){
 
 imprimirProfesiones(juan)
 
-/*function esMayorDeEdad(juan){
-	return juan.edad >= 18
+function esMayorDeEdad(juan){
+	return juan.edad >= 18     
 }
-*/
 
-const esMayorDeEdad = juan => juan.edad >= 18  //Arrow function
-
-/*function imprimirMayorDeEdad(juan){
+function imprimirMayorDeEdad(juan){
 
 
 		if (esMayorDeEdad(juan)) {
@@ -53,16 +51,3 @@ const esMayorDeEdad = juan => juan.edad >= 18  //Arrow function
 }
 
 imprimirMayorDeEdad(juan)
-
-*/
-
-const esMenorDeEdad = juan => juan.edad < 18               //Arrow function para mostrar que Juan es menor de edad
-
-function imprimirMenorDeEdad(juan){
-	if(esMenorDeEdad(juan)){
-		console.log(`${juan.nombre} es menor de edad`)
-	}
-}
-
-imprimirMenorDeEdad(juan)
-

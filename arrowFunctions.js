@@ -1,13 +1,12 @@
-var juan = {   //Objeto Juan
+var juan = {
 	nombre: 'Juan',
 	apellido: 'Cedillo',
-	edad: 18,
+	edad: 17,
 	licenciado: true,
 	streamer: false,
 	chef: false,
 	jugadorVideojuegos: true
 }
-
 
 function imprimirProfesiones(juan){
 	console.log(`${juan.nombre} es:`)
@@ -36,11 +35,14 @@ function imprimirProfesiones(juan){
 
 imprimirProfesiones(juan)
 
-function esMayorDeEdad(juan){
+/*function esMayorDeEdad(juan){
 	return juan.edad >= 18
 }
+*/
 
-function imprimirMayorDeEdad(juan){
+const esMayorDeEdad = juan => juan.edad >= 18  //Arrow function
+
+/*function imprimirMayorDeEdad(juan){
 
 
 		if (esMayorDeEdad(juan)) {
@@ -51,3 +53,21 @@ function imprimirMayorDeEdad(juan){
 }
 
 imprimirMayorDeEdad(juan)
+
+*/
+
+const esMenorDeEdad = juan => juan.edad < 18               //Arrow function para mostrar que Juan es menor de edad
+
+function imprimirMenorDeEdad(juan){
+	if(esMenorDeEdad(juan)){
+		console.log(`${juan.nombre} es menor de edad`)
+	}
+}
+
+imprimirMenorDeEdad(juan)
+
+/*podemos usar esta nomenclatura mas corta para declarar una variable=> 
+ademas de que implicitamente va a renornar el valor de la sentencia sin
+ forzosamente tener que declarar un return*/
+ 
+
